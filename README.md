@@ -27,3 +27,6 @@ PhotoGallery is a Flickr web photo hosting client that will display public photo
                 `.  `*%@@@@@@@%*`  .      `  `+:::::::::+`  '
                     .    ```   _ '          - .   ```     -
                        `  '                     `  '  `
+
+
+P.S. Idk why, but [flickr.com](https://www.flickr.com/) doesn't work in Kazakhstan without VPN.
