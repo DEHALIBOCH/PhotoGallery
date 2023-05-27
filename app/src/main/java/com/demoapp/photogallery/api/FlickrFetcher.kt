@@ -14,19 +14,20 @@ private const val TAG = "FlickrFetcher"
 class FlickrFetcher {
 
     private val flickrApi: FlickrApi
+    private val baseApiUrl = "https://api.flickr.com/"
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://www.flickr.com/")
+            .baseUrl(baseApiUrl)
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
 
         flickrApi = retrofit.create(FlickrApi::class.java)
     }
 
-    fun fetchContents(): LiveData<String> {
+    fun fetchPhotos(): LiveData<String> {
         val responseLiveData: MutableLiveData<String> = MutableLiveData()
-        val flickrRequest: Call<String> = flickrApi.fetchContents()
+        val flickrRequest: Call<String> = flickrApi.fetchPhotos()
 
         flickrRequest.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
