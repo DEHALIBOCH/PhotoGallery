@@ -1,0 +1,25 @@
+{
+  "photos": {
+    "page": 1,
+    "pages": 5,
+    "perpage": 100,
+    "total": 500,
+    "photo": [
+      {
+        "id": "666",
+        "owner": "abrakadabra",
+        "secret": "abrakadabra",
+        "server": "666",
+        "farm": 666,
+        "title": "abrakadabra",
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0,
+        "url_s": "https://live.staticflickr.com/abrakadabra.jpg",
+        "height_s": 666,
+        "width_s": 666
+      }
+    ]
+  },
+  "stat": "ok"
+}
