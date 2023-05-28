@@ -14,3 +14,4 @@
 .cxx
 local.properties
 app/src/main/java/com/demoapp/photogallery/api/ApiKey.kt
+app/src/main/res/drawable/placeholder_image.png
