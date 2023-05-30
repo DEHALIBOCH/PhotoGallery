@@ -19,6 +19,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.Constraints
+import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.demoapp.photogallery.databinding.FragmentPhotoGalleryBinding
@@ -48,8 +50,13 @@ class PhotoGalleryFragment : Fragment() {
             }
         lifecycle.addObserver(thumbnailDownloader.fragmentLifecycleObserver)
 
-        val workRequest = OneTimeWorkRequest.Builder(PollWorker::class.java).build()
-        WorkManager.getInstance().enqueue(workRequest)
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.UNMETERED)
+            .build()
+        val workRequest = OneTimeWorkRequest.Builder(PollWorker::class.java)
+            .setConstraints(constraints)
+            .build()
+        WorkManager.getInstance(requireActivity()).enqueue(workRequest)
     }
 
     override fun onCreateView(
@@ -105,11 +112,12 @@ class PhotoGalleryFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.menu_item_clear -> {
                 photoGalleryViewModel.fetchPhotos("")
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
