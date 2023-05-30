@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">PhotoGallery</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="flickr_image">Image from flickr.com</string>
     <string name="search">Search</string>
     <string name="clear_search">Clear Search</string>
+    <string name="notification_channel_name">FlickrFetcher</string>
+    <string name="new_pictures_title">New PhotoGallery</string>
+    <string name="new_pictures_text">You have new pictures in PhotoGallery</string>
 </resources>
