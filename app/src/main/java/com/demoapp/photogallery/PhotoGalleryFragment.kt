@@ -19,7 +19,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
 import com.demoapp.photogallery.databinding.FragmentPhotoGalleryBinding
+import com.demoapp.photogallery.worker.PollWorker
 
 private const val TAG = "PhotoGalleryFragment"
 
@@ -44,6 +47,9 @@ class PhotoGalleryFragment : Fragment() {
                 photoHolder.bindDrawable(drawable)
             }
         lifecycle.addObserver(thumbnailDownloader.fragmentLifecycleObserver)
+
+        val workRequest = OneTimeWorkRequest.Builder(PollWorker::class.java).build()
+        WorkManager.getInstance().enqueue(workRequest)
     }
 
     override fun onCreateView(
