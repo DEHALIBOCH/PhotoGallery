@@ -3,6 +3,7 @@ package com.demoapp.photogallery.worker
 import android.Manifest
 import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.util.Log
 import androidx.core.app.ActivityCompat
@@ -75,9 +76,15 @@ class PollWorker(val context: Context, workerParams: WorkerParameters) :
             ) {
                 notificationManager.notify(0, notification)
             }
+            context.sendBroadcast(Intent(ACTION_SHOW_NOTIFICATION), PERM_PRIVATE)
         }
 
         return Result.success()
+    }
+
+    companion object {
+        const val ACTION_SHOW_NOTIFICATION = "com.demoapp.photogallery.SHOW_NOTIFICATION"
+        const val PERM_PRIVATE = "com.demoapp.photogallery.PRIVATE"
     }
 
 }

@@ -2,8 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <permission
+        android:name="com.demoapp.photogallery.PRIVATE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="com.demoapp.photogallery.PRIVATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".PhotoGalleryApplication"
@@ -25,6 +30,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name=".receiver.NotificationReceiver"
+            android:permission="com.demoapp.photogallery.PRIVATE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.demoapp.photogallery.SHOW_NOTIFICATION" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
