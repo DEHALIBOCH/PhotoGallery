@@ -12,7 +12,7 @@ abstract class VisibleFragment : Fragment() {
 
     private val onShowNotification = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            Toast.makeText(requireContext(), "Got a broadcast", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Got a broadcast ${intent?.action}", Toast.LENGTH_LONG).show()
         }
     }
 

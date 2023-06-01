@@ -20,7 +20,7 @@ import com.demoapp.photogallery.api.FlickrFetcher
 
 private const val TAG = "PollWorker"
 
-class PollWorker(val context: Context, workerParams: WorkerParameters) :
+class PollWorker(private val context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
 
     override fun doWork(): Result {
