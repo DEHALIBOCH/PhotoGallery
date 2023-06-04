@@ -186,7 +186,12 @@ class PhotoGalleryFragment : VisibleFragment() {
         }
 
         override fun onClick(v: View?) {
-            val intent = Intent(Intent.ACTION_VIEW, galleryItem.photoPageUri)
+            // Starts browser
+//            val intent = Intent(Intent.ACTION_VIEW, galleryItem.photoPageUri)
+            // Shows photo in WebView
+            val intent = PhotoPageActivity.newIntent(
+                requireContext(), galleryItem.photoPageUri
+            )
             startActivity(intent)
         }
     }
